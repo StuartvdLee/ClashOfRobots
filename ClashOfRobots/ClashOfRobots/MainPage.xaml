@@ -9,6 +9,8 @@
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
             <Button x:Name="ForwardButton" Text="Forward" Clicked="OnForward" />
+            <Button x:Name="RightButton" Text="Right" Clicked="OnRight" />
+            <Button x:Name="LeftButton" Text="Left" Clicked="OnLeft" />
             <Button x:Name="StopButton" Text="Stop" Clicked="OnStop" />
             <Button x:Name="GetPairedButton" Text="Scan Paired" Clicked="OnCyclePaired" />
             <Button x:Name="DisconnectButton" Text="Disconnect" Clicked="OnDisconnect" />

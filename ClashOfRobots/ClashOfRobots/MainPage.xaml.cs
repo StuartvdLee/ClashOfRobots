@@ -42,6 +42,17 @@ namespace ClashOfRobots
 
             TryWrite("f");
         }
+
+        void OnRight(object sender, EventArgs e)
+        {
+            TryWrite("r");
+        }
+
+        void OnLeft(object sender, EventArgs e)
+        {
+            TryWrite("l");
+        }
+
         void OnStop(object sender, EventArgs e)
         {
             TryWrite("s");
