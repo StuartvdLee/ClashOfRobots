@@ -141,10 +141,10 @@
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\Drawable\Up_Button.xml" />
+    <AndroidResource Include="Resources\Drawable\Forward_Button.xml" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\Drawable\Stop_Button.xml" />
+    <AndroidResource Include="Resources\Drawable\Back_Button.xml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\Drawable\Left_Button.xml" />
@@ -159,10 +159,10 @@
     <AndroidResource Include="Resources\Drawable\RightButton.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\Drawable\StopButton.png" />
+    <AndroidResource Include="Resources\Drawable\BackButton.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\Drawable\UpButton.png" />
+    <AndroidResource Include="Resources\Drawable\ForwardButton.png" />
   </ItemGroup>
   <Import Project="..\ClashOfRobots\ClashOfRobots.projitems" Label="Shared" Condition="Exists('..\ClashOfRobots\ClashOfRobots.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

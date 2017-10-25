@@ -2,28 +2,86 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:ClashOfRobots"
-             x:Class="ClashOfRobots.MainPage"
-             xmlns:android="http://schemas.android.com/apk/res/android">
+             xmlns:android="http://schemas.android.com/apk/res/android"
+             x:Class="ClashOfRobots.MainPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="100" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*"  />
+            </Grid.ColumnDefinitions>
+
+            <Label 
+                Text="Clash of Robots"
+                HorizontalTextAlignment="Center" 
+                VerticalTextAlignment="Center"
+                Grid.Column="1" 
+                Grid.Row="0"
+                />
+
+            <Button
+                x:Name="ForwardButton" 
+                Image="@drawable/ForwardButton" 
+                Pressed="OnForwardPress" 
+                Released="OnButtonRelease"
+                BackgroundColor="Transparent"
+                VerticalOptions="End"
+                Grid.Column="1"
+                Grid.Row="1"
+                />
+
+            <Button
+                x:Name="RightButton" 
+                Image="@drawable/RightButton" 
+                Pressed="OnRightPress" 
+                Released="OnButtonRelease"
+                BackgroundColor="Transparent"
+                Grid.Column="2"
+                Grid.Row="2"
+                />
             
-            <Button x:Name="GetPairedButton" Text="Scan Paired" Clicked="OnCyclePaired" />
-            <Button x:Name="DisconnectButton" Text="Disconnect" Clicked="OnDisconnect" />
+            <Button
+                x:Name="LeftButton" 
+                Image="@drawable/LeftButton" 
+                Pressed="OnLeftPress" 
+                Released="OnButtonRelease"
+                BackgroundColor="Transparent"
+                Grid.Column="0"
+                Grid.Row="2"
+                />
+            
+            <Button
+                x:Name="StopButton" 
+                Image="@drawable/BackButton" 
+                Pressed="OnBackPress" 
+                Released="OnButtonRelease"
+                BackgroundColor="Transparent"
+                Grid.Column="1"
+                Grid.Row="2"
+                />
 
-            <Button x:Name="ForwardButton" Image="@drawable/UpButton" Pressed="OnForwardPress" Released="OnButtonRelease"/>
-            <Button x:Name="RightButton" Image="@drawable/RightButton" Pressed="OnRightPress" Released="OnButtonRelease"/>
-            <Button x:Name="LeftButton" Image="@drawable/LeftButton" Pressed="OnLeftPress" Released="OnButtonRelease"/>
-            <Button x:Name="StopButton" Image="@drawable/StopButton" Pressed="OnBackPress" Released="OnButtonRelease"/>
+            <Button 
+                x:Name="GetPairedButton" 
+                Text="Scan Paired" 
+                Clicked="OnCyclePaired"
+                Grid.Column="0"
+                Grid.Row="3"
+                />
 
-            <!--BackgroundColor="@drawable/Up_Button"
-                android:id="@+id/button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="10dp"-->
-
-        </StackLayout>
+            <Button 
+                x:Name="DisconnectButton" 
+                Text="Disconnect" 
+                Clicked="OnDisconnect" 
+                Grid.Column="2"
+                Grid.Row="3"
+                />
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
