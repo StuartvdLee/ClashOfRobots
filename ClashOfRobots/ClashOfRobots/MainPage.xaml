@@ -2,18 +2,28 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:ClashOfRobots"
-             x:Class="ClashOfRobots.MainPage">
+             x:Class="ClashOfRobots.MainPage"
+             xmlns:android="http://schemas.android.com/apk/res/android">
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Welcome to Xamarin.Forms!"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
-            <Button x:Name="ForwardButton" Text="Forward" Clicked="OnForward" />
-            <Button x:Name="RightButton" Text="Right" Clicked="OnRight" />
-            <Button x:Name="LeftButton" Text="Left" Clicked="OnLeft" />
-            <Button x:Name="StopButton" Text="Stop" Clicked="OnStop" />
+            
             <Button x:Name="GetPairedButton" Text="Scan Paired" Clicked="OnCyclePaired" />
             <Button x:Name="DisconnectButton" Text="Disconnect" Clicked="OnDisconnect" />
+
+            <Button x:Name="ForwardButton" Image="@drawable/UpButton" Pressed="OnForwardPress" Released="OnButtonRelease"/>
+            <Button x:Name="RightButton" Image="@drawable/RightButton" Pressed="OnRightPress" Released="OnButtonRelease"/>
+            <Button x:Name="LeftButton" Image="@drawable/LeftButton" Pressed="OnLeftPress" Released="OnButtonRelease"/>
+            <Button x:Name="StopButton" Image="@drawable/StopButton" Pressed="OnBackPress" Released="OnButtonRelease"/>
+
+            <!--BackgroundColor="@drawable/Up_Button"
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"-->
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

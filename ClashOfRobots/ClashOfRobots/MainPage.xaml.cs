@@ -37,24 +37,38 @@ namespace ClashOfRobots
 
         }
 
-        void OnForward(object sender, EventArgs e)
+        void OnForwardPress(object sender, EventArgs e)
         {
 
+            Console.WriteLine("Forward!");
             TryWrite("f");
         }
 
-        void OnRight(object sender, EventArgs e)
+        void OnRightPress(object sender, EventArgs e)
         {
+
+            Console.WriteLine("Right!");
             TryWrite("r");
         }
 
-        void OnLeft(object sender, EventArgs e)
+        void OnLeftPress(object sender, EventArgs e)
         {
+
+            Console.WriteLine("Left!");
             TryWrite("l");
         }
 
-        void OnStop(object sender, EventArgs e)
+        void OnBackPress(object sender, EventArgs e)
         {
+
+            Console.WriteLine("Backward!");
+            TryWrite("b");
+        }
+
+        void OnButtonRelease(object sender, EventArgs e)
+        {
+
+            Console.WriteLine("Stop!");
             TryWrite("s");
         }
 
@@ -77,7 +91,6 @@ namespace ClashOfRobots
                 Adapter.DisconnectDeviceAsync(device);
             }
         }
-
 
         async void Scan()
         {
