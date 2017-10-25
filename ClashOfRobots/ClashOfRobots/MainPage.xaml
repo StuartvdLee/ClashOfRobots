@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:ClashOfRobots"
+             x:Class="ClashOfRobots.MainPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <Button x:Name="ForwardButton" Text="Forward" Clicked="OnForward" />
+            <Button x:Name="StopButton" Text="Stop" Clicked="OnStop" />
+            <Button x:Name="GetPairedButton" Text="Scan Paired" Clicked="OnCyclePaired" />
+            <Button x:Name="DisconnectButton" Text="Disconnect" Clicked="OnDisconnect" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
