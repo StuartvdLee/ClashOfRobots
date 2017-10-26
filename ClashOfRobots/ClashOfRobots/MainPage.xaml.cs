@@ -111,12 +111,13 @@ namespace ClashOfRobots
             Console.WriteLine("START CYCLE");
 
             var systemDevices = Adapter.GetSystemConnectedOrPairedDevices();
+
             foreach (var device in systemDevices)
             {
                 Console.WriteLine("CYCLE FOUND " + device.Name);
 
-                if (device.Name == "Kijkdoos135")
-                {
+                if (device.Name.Contains("Kijkdoos"))
+                {                    
                     Console.WriteLine("CYCLE CONNECT TO " + device.Name);
                     try
                     {
@@ -136,7 +137,7 @@ namespace ClashOfRobots
         void FoundDevice(Object s, Plugin.BLE.Abstractions.EventArgs.DeviceEventArgs a)
         {
             Console.WriteLine("FOUND DEVICE: " + a.Device);
-            if (a.Device.Name == "Kijkdoos135")
+            if (a.Device.Name.Contains("Kijkdoos"))
             {
                 ConnectDevice(a.Device);
             }
