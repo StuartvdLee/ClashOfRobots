@@ -9,7 +9,8 @@ using Plugin.BLE.Abstractions;
 using Plugin.BLE.Abstractions.EventArgs;
 using Plugin.BLE.Abstractions.Exceptions;
 using Plugin.BLE.Abstractions.Contracts;
-
+using Android.App;
+using Android.OS;
 
 namespace ClashOfRobots
 {
@@ -37,38 +38,36 @@ namespace ClashOfRobots
 
         }
 
+        void OnVibrateClick(object sender, EventArgs e)
+        {
+            TryWrite("q");
+            var v = (Vibrator)Android.App.Application.Context.GetSystemService(Android.App.Application.VibratorService);
+            v.Vibrate(500);
+            DisplayAlert("Af!", "Je hebt verloren", "Ok");
+        }
+
         void OnForwardPress(object sender, EventArgs e)
         {
-
-            Console.WriteLine("Forward!");
             TryWrite("f");
         }
 
         void OnRightPress(object sender, EventArgs e)
         {
-
-            Console.WriteLine("Right!");
             TryWrite("r");
         }
 
         void OnLeftPress(object sender, EventArgs e)
         {
-
-            Console.WriteLine("Left!");
             TryWrite("l");
         }
 
         void OnBackPress(object sender, EventArgs e)
         {
-
-            Console.WriteLine("Backward!");
             TryWrite("b");
         }
 
         void OnButtonRelease(object sender, EventArgs e)
         {
-
-            Console.WriteLine("Stop!");
             TryWrite("s");
         }
 
