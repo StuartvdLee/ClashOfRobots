@@ -38,13 +38,7 @@ namespace ClashOfRobots
 
         }
 
-        void OnVibrateClick(object sender, EventArgs e)
-        {
-            TryWrite("q");
-            var v = (Vibrator)Android.App.Application.Context.GetSystemService(Android.App.Application.VibratorService);
-            v.Vibrate(500);
-            DisplayAlert("Af!", "Je hebt verloren", "Ok");
-        }
+
 
         void OnForwardPress(object sender, EventArgs e)
         {
@@ -116,7 +110,7 @@ namespace ClashOfRobots
                 Console.WriteLine("CYCLE FOUND " + device.Name);
 
                 if (device.Name.Contains("Kijkdoos"))
-                {                    
+                {
                     Console.WriteLine("CYCLE CONNECT TO " + device.Name);
                     try
                     {
@@ -232,9 +226,13 @@ namespace ClashOfRobots
                 if (mainCharacteristic != null)
                 {
                     Console.WriteLine("FOUND CHARACTERISTIC " + mainCharacteristic.Name);
+                    TryRead();
                 }
             }
-            catch { }
+            catch (Exception e)
+            {
+                throw;
+            }
             Console.WriteLine("STOP GETCHARACTERISTIC");
         }
 
@@ -250,6 +248,40 @@ namespace ClashOfRobots
             }
             catch { }
             writing = false;
+        }
+
+        async void TryRead()
+        {
+            mainCharacteristic.ValueUpdated += (o, args) =>
+            {
+                var bytes = args.Characteristic.Value;
+
+                if (bytes == null)
+                    return;
+
+                var signal = System.Text.Encoding.Default.GetString(bytes);
+
+                Console.WriteLine(signal);
+
+                if (signal == "q")
+                {
+                    var v = (Vibrator)Android.App.Application.Context.GetSystemService(Android.App.Application.VibratorService);
+                    v.Vibrate(500);
+                    try
+                    {
+                        Device.BeginInvokeOnMainThread(async () =>
+                        {
+                            await DisplayAlert("Af!", "Je hebt verloren", "Ok");
+                        });
+                    }
+                    catch (Exception e)
+                    {
+                        throw;
+                    }
+                }
+            };
+
+            await mainCharacteristic.StartUpdatesAsync();            
         }
     }
 }

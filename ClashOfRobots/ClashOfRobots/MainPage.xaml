@@ -18,14 +18,6 @@
                 <ColumnDefinition Width="1*" />
             </Grid.ColumnDefinitions>
 
-            <Button 
-                x:Name="VibrateButton" 
-                Text="Vibrate" 
-                Clicked="OnVibrateClick" 
-                Grid.Column="0"
-                Grid.Row="0"
-                />
-
             <Label 
                 Text="Clash of Robots"
                 HorizontalTextAlignment="Center" 
